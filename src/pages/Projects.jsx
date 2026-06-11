@@ -42,7 +42,8 @@ export default function Projects() {
     <motion.section
       className="container"
       initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6 }}
       id="projects"
     >
@@ -51,7 +52,8 @@ export default function Projects() {
           className="text-4xl font-semibold mb-2"
           style={{ color: 'var(--accent)', display: 'flex', alignItems: 'center', gap: 10 }}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
           <FolderGit2 size={32} /> Projects

@@ -27,6 +27,28 @@ const ROWS = [
   ],
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1.2,
+      ease: "easeOut",
+      staggerChildren: 0.08,
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
 export default function Skills() {
   const stageRef = useRef();
 
@@ -77,7 +99,8 @@ export default function Skills() {
       <motion.div
         className="skills-header"
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 1 }}
         style={{ textAlign: "center", marginBottom: "40px" }}
       >
@@ -92,9 +115,10 @@ export default function Skills() {
       <motion.div
         className="skills-stage relative mx-auto mb-20"
         ref={stageRef}
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
         style={{
           width: "100%",
           height: "450px",
@@ -110,9 +134,7 @@ export default function Skills() {
           <motion.div
             key={s.name}
             className="skill-circle"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.08, duration: 0.6, ease: "easeOut" }}
+            variants={itemVariants}
             whileHover={{
               scale: 1.3,
               boxShadow: "0 0 35px 10px rgba(var(--accent-rgb), 0.5)",
@@ -174,6 +196,7 @@ export default function Skills() {
                 className="skill-box"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{
                   duration: 0.6,

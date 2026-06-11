@@ -8,7 +8,8 @@ export default function Resume() {
       <motion.div
         className="card"
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.8 }}
         style={{
           background: "rgba(255, 255, 255, 0.02)",
@@ -22,8 +23,9 @@ export default function Resume() {
       >
         <motion.h2
           initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
           style={{ fontSize: 28, color: "var(--accent)", marginBottom: 12, display: "flex", alignItems: "center", gap: 10 }}
         >
           <FileText size={28} /> Resume
@@ -31,8 +33,9 @@ export default function Resume() {
 
         <motion.p
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.25 }}
           style={{ color: "#aaa", marginBottom: 25 }}
         >
           A quick glance at my journey.
@@ -41,8 +44,9 @@ export default function Resume() {
         {/* Profile Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -93,8 +97,9 @@ export default function Resume() {
         {/* Education Section with Border Box */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
           style={{
             marginTop: 40,
             border: "1px solid rgba(255,255,255,0.1)",
@@ -125,8 +130,9 @@ export default function Resume() {
         {/* Experience Section with Border Box */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
           style={{
             marginTop: 40,
             border: "1px solid rgba(255,255,255,0.1)",
@@ -157,8 +163,9 @@ export default function Resume() {
         {/* Projects */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.55 }}
           style={{ marginTop: 40 }}
         >
           <h4 style={{ fontSize: 20, color: "var(--accent)", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
@@ -175,8 +182,9 @@ export default function Resume() {
         {/* Skills */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
           style={{ marginTop: 40 }}
         >
           <h4 style={{ fontSize: 20, color: "var(--accent)", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
@@ -227,8 +235,9 @@ export default function Resume() {
         
         <motion.div
           initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.7 }}
           style={{
             display: "flex",
             justifyContent: "center",
@@ -267,8 +276,9 @@ export default function Resume() {
         {/* PDF Viewer */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.65 }}
           style={{
             marginTop: 50,
             borderRadius: 12,

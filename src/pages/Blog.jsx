@@ -64,13 +64,15 @@ export default function Blog() {
     <motion.section
       className="blog-section"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6 }}
     >
       <motion.h2
         className="blog-title"
         initial={{ y: -15, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}
       >
@@ -86,7 +88,8 @@ export default function Blog() {
             key={p.id}
             className="blog-post"
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6, delay: idx * 0.15 }}
             whileHover={{
               scale: 1.02,

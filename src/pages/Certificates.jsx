@@ -44,7 +44,14 @@ export default function Certificates() {
 
   return (
     <section className="container" style={{ padding: "40px 0" }}>
-      <div className="card" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.05)", borderRadius: 12, padding: 24 }}>
+      <motion.div
+        className="card"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.8 }}
+        style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.05)", borderRadius: 12, padding: 24 }}
+      >
         <h2 style={{ fontSize: "1.8rem", color: "#fff", marginBottom: 4, display: "flex", alignItems: "center", gap: 8 }}>
           <Award size={24} style={{ color: "var(--accent)" }} /> Certificates
         </h2>
@@ -141,7 +148,7 @@ export default function Certificates() {
             ))}
           </AnimatePresence>
         </div>
-      </div>
+      </motion.div>
 
       {/* Modal Preview */}
       <AnimatePresence>

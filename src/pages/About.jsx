@@ -20,8 +20,9 @@ const AboutMe = () => {
       {/* --- About Me + Education Section --- */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
         style={{
           width: "100%",
           maxWidth: "1100px",
@@ -78,8 +79,9 @@ const AboutMe = () => {
         {/* --- Education Section --- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
           style={{ marginTop: "3rem" }}
         >
           <h3

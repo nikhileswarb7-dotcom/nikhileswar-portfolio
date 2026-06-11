@@ -76,7 +76,8 @@ export default function Contact() {
     <section className="contact-section">
       <motion.h1
         initial={{ opacity: 0, y: -15 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.7 }}
         className="contact-title"
         style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}
@@ -86,15 +87,22 @@ export default function Contact() {
 
       <motion.p
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2, duration: 0.8 }}
         className="contact-subtitle"
       >
         Whether it’s a new project, a collaboration, or just to say hi — I’d love to hear from you!
       </motion.p>
 
       {/* Quick Links */}
-      <motion.div className="contact-links">
+      <motion.div
+        className="contact-links"
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.25, duration: 0.6 }}
+      >
         {quickLinks.map((item, i) => (
           <motion.a
             key={i}
@@ -124,8 +132,9 @@ export default function Contact() {
       <motion.form
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.9 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ delay: 0.3, duration: 0.9 }}
         className="contact-form"
       >
         <input type="text" name="name" placeholder="Your Name" value={form.name} onChange={handleChange} required />

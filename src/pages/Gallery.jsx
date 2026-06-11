@@ -116,7 +116,8 @@ export default function Gallery() {
       className="gallery-container"
       variants={pageVariants}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
       exit="hidden"
     >
       {/* 🌟 Title */}
