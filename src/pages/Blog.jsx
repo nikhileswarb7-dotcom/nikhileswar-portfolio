@@ -66,14 +66,14 @@ export default function Blog() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ type: "spring", stiffness: 60, damping: 14 }}
     >
       <motion.h2
         className="blog-title"
         initial={{ y: -15, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ type: "spring", stiffness: 80, damping: 14 }}
         style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}
       >
         <BookOpen size={28} style={{ color: "var(--accent)" }} /> My Blog
@@ -90,7 +90,7 @@ export default function Blog() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6, delay: idx * 0.15 }}
+            transition={{ type: "spring", stiffness: 70, damping: 14, delay: idx * 0.12 }}
             whileHover={{
               scale: 1.02,
               boxShadow: "0 0 20px rgba(255,255,255,0.1)",

@@ -59,22 +59,27 @@ const IMAGES = {
 
 // ✨ Animation Variants
 const pageVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 60 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.2,
-      duration: 0.8,
-      ease: "easeOut",
+      staggerChildren: 0.15,
+      type: "spring",
+      stiffness: 50,
+      damping: 14,
     },
   },
 };
 
 const childVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { type: "spring", stiffness: 80, damping: 14 } 
+  },
 };
 
 // ✨ Tab Switching Animations
@@ -84,9 +89,14 @@ const tabContentVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { type: "spring", stiffness: 80, damping: 14 },
   },
-  exit: { opacity: 0, y: -30, scale: 0.98, transition: { duration: 0.4 } },
+  exit: { 
+    opacity: 0, 
+    y: -30, 
+    scale: 0.98, 
+    transition: { type: "spring", stiffness: 100, damping: 15 } 
+  },
 };
 
 export default function Gallery() {

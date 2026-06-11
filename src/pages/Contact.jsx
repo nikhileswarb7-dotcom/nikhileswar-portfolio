@@ -75,10 +75,10 @@ export default function Contact() {
   return (
     <section className="contact-section">
       <motion.h1
-        initial={{ opacity: 0, y: -15 }}
+        initial={{ opacity: 0, y: -25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.7 }}
+        transition={{ type: "spring", stiffness: 80, damping: 14 }}
         className="contact-title"
         style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}
       >
@@ -89,7 +89,7 @@ export default function Contact() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.8 }}
+        transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.15 }}
         className="contact-subtitle"
       >
         Whether it’s a new project, a collaboration, or just to say hi — I’d love to hear from you!
@@ -98,10 +98,10 @@ export default function Contact() {
       {/* Quick Links */}
       <motion.div
         className="contact-links"
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.25, duration: 0.6 }}
+        transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.22 }}
       >
         {quickLinks.map((item, i) => (
           <motion.a
@@ -131,10 +131,10 @@ export default function Contact() {
       {/* Contact Form */}
       <motion.form
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 45 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
-        transition={{ delay: 0.3, duration: 0.9 }}
+        transition={{ type: "spring", stiffness: 70, damping: 14, delay: 0.3 }}
         className="contact-form"
       >
         <input type="text" name="name" placeholder="Your Name" value={form.name} onChange={handleChange} required />

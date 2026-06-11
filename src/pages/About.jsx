@@ -19,10 +19,10 @@ const AboutMe = () => {
     >
       {/* --- About Me + Education Section --- */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
+        transition={{ type: "spring", stiffness: 60, damping: 14 }}
         style={{
           width: "100%",
           maxWidth: "1100px",
@@ -32,7 +32,7 @@ const AboutMe = () => {
           background: "rgba(255,255,255,0.04)",
           padding: "3rem 3.5rem",
           borderRadius: "18px",
-          boxShadow: "0 0 25px rgba(0,255,200,0.08)",
+          boxShadow: "0 0 25px rgba(var(--accent-rgb), 0.08)",
           backdropFilter: "blur(10px)",
         }}
       >
@@ -78,10 +78,10 @@ const AboutMe = () => {
 
         {/* --- Education Section --- */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
+          transition={{ type: "spring", stiffness: 80, damping: 14 }}
           style={{ marginTop: "3rem" }}
         >
           <h3
@@ -108,15 +108,16 @@ const AboutMe = () => {
             <motion.div
               whileHover={{
                 scale: 1.02,
-                boxShadow: "0 0 25px rgba(0,255,200,0.15)",
+                y: -5,
+                boxShadow: "0 0 25px rgba(var(--accent-rgb), 0.15)",
               }}
-              transition={{ duration: 0.3 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
               style={{
                 background: "rgba(255,255,255,0.05)",
                 borderRadius: "14px",
                 padding: "1.5rem 2rem",
                 border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 0 15px rgba(0,255,200,0.05)",
+                boxShadow: "0 0 15px rgba(var(--accent-rgb), 0.05)",
                 display: "flex",
                 alignItems: "center",
                 gap: "1.2rem",
@@ -152,15 +153,16 @@ const AboutMe = () => {
             <motion.div
               whileHover={{
                 scale: 1.02,
-                boxShadow: "0 0 25px rgba(0,255,200,0.15)",
+                y: -5,
+                boxShadow: "0 0 25px rgba(var(--accent-rgb), 0.15)",
               }}
-              transition={{ duration: 0.3 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
               style={{
                 background: "rgba(255,255,255,0.05)",
                 borderRadius: "14px",
                 padding: "1.5rem 2rem",
                 border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 0 15px rgba(0,255,200,0.05)",
+                boxShadow: "0 0 15px rgba(var(--accent-rgb), 0.05)",
                 display: "flex",
                 alignItems: "center",
                 gap: "1.2rem",
@@ -196,15 +198,16 @@ const AboutMe = () => {
             <motion.div
               whileHover={{
                 scale: 1.02,
-                boxShadow: "0 0 25px rgba(0,255,200,0.15)",
+                y: -5,
+                boxShadow: "0 0 25px rgba(var(--accent-rgb), 0.15)",
               }}
-              transition={{ duration: 0.3 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
               style={{
                 background: "rgba(255,255,255,0.05)",
                 borderRadius: "14px",
                 padding: "1.5rem 2rem",
                 border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 0 15px rgba(0,255,200,0.05)",
+                boxShadow: "0 0 15px rgba(var(--accent-rgb), 0.05)",
                 display: "flex",
                 alignItems: "center",
                 gap: "1.2rem",

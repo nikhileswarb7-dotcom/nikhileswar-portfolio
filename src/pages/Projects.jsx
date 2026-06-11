@@ -2,6 +2,31 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Github, ExternalLink, FolderGit2 } from 'lucide-react'
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 70,
+      damping: 14,
+      mass: 0.8,
+    }
+  }
+};
+
 const PROJECTS = [
   {
     title: 'CareerCompass AI',
@@ -41,11 +66,10 @@ export default function Projects() {
   return (
     <motion.section
       className="container"
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6 }}
-      id="projects"
+      transition={{ type: "spring", stiffness: 60, damping: 14 }}
     >
       <div className="card" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 16, padding: 30 }}>
         <motion.h2
@@ -62,23 +86,28 @@ export default function Projects() {
           A collection of my major works — blending research, AI innovation.
         </p>
 
-        <div className="projects-grid" style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+        <motion.div
+          className="projects-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}
+        >
           {PROJECTS.map((p, idx) => (
             <motion.div
               key={idx}
               className="project-card"
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.4, delay: idx * 0.15 }}
-              whileHover={{ scale: 1.03 }}
-              viewport={{ once: true }}
+              variants={cardVariants}
+              whileHover={{ y: -8, boxShadow: '0 12px 30px rgba(var(--accent-rgb), 0.2)' }}
               style={{
                 background: 'linear-gradient(145deg, rgba(20,20,20,0.9), rgba(10,10,10,0.9))',
                 border: '1px solid rgba(var(--accent-rgb), 0.15)',
                 borderRadius: 16,
                 padding: 16,
                 overflow: 'hidden',
-                boxShadow: '0 0 20px rgba(var(--accent-rgb), 0.08)'
+                boxShadow: '0 0 20px rgba(var(--accent-rgb), 0.08)',
+                transition: 'box-shadow 0.3s ease, border-color 0.3s ease'
               }}
             >
               <motion.div className="ss" whileHover={{ scale: 1.05 }} style={{ borderRadius: 12, overflow: 'hidden' }}>
@@ -162,7 +191,7 @@ export default function Projects() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </motion.section>
   )

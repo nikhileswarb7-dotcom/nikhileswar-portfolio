@@ -14,6 +14,26 @@ const whatsappLogo = '/whatsapp.png'
 const instagramLogo = '/insta.png'
 const facebookLogo = '/facebook.png'
 
+const infoContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.2,
+    }
+  }
+};
+
+const infoItemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 80, damping: 14 }
+  }
+};
+
 export default function Home() {
   const professions = [
     'AI/ML Developer',
@@ -44,9 +64,9 @@ export default function Home() {
       <div className="home-top">
         {/* Left: Glowing Photo */}
         <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, x: -80, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ type: "spring", stiffness: 60, damping: 14 }}
           className="photo-container"
         >
           <motion.div
@@ -72,12 +92,12 @@ export default function Home() {
 
         {/* Right: Info Section */}
         <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          variants={infoContainerVariants}
+          initial="hidden"
+          animate="visible"
           className="home-info"
         >
-          <h1 className="home-title">
+          <motion.h1 variants={infoItemVariants} className="home-title">
             Hi, I’m{' '}
             <motion.span
               animate={{ backgroundPositionX: ['0%', '200%'] }}
@@ -86,15 +106,15 @@ export default function Home() {
             >
               Nikhileswar Behera
             </motion.span>
-          </h1>
+          </motion.h1>
 
           {/* Typing Animated Text */}
-          <p className="typing-effect">
+          <motion.p variants={infoItemVariants} className="typing-effect">
             Computer Science Student | AI/ML & IoT Developer
-          </p>
+          </motion.p>
 
           {/* Profession Tags */}
-          <motion.div className="profession-tags">
+          <motion.div variants={infoItemVariants} className="profession-tags">
             {professions.map((role, i) => (
               <motion.div key={i} whileHover={{ scale: 1.05, background: 'linear-gradient(90deg,var(--accent),var(--accent-2))' }} transition={{ type: 'spring', stiffness: 200 }} className="profession-tag">
                 {role}
@@ -103,7 +123,7 @@ export default function Home() {
           </motion.div>
 
           {/* Info Cards */}
-          <motion.div className="info-cards">
+          <motion.div variants={infoItemVariants} className="info-cards">
             {[
               { icon: <MapPin size={18} style={{ color: 'var(--accent)', marginBottom: '6px' }} />, label: 'Location', value: 'Visakhapatnam, AP, India' },
               { icon: <Briefcase size={18} style={{ color: 'var(--accent)', marginBottom: '6px' }} />, label: 'Expertise', value: 'AI/ML, IoT, Embedded Systems' },
@@ -122,7 +142,12 @@ export default function Home() {
       </div>
 
       {/* Bottom Quick Links */}
-      <motion.div className="quick-links">
+      <motion.div 
+        className="quick-links"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 60, damping: 14, delay: 0.8 }}
+      >
         <h2 className="quick-links-title">Connect with me</h2>
         <div className="quick-links-list">
           {quickLinks.map((item, i) => (

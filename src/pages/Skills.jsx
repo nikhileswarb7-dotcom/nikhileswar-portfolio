@@ -28,13 +28,14 @@ const ROWS = [
 ];
 
 const containerVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.95 },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 1.2,
-      ease: "easeOut",
+      type: "spring",
+      stiffness: 50,
+      damping: 15,
       staggerChildren: 0.08,
     }
   }
@@ -45,7 +46,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { type: "spring", stiffness: 100, damping: 12 }
   }
 };
 
@@ -94,7 +95,7 @@ export default function Skills() {
   }, []);
 
   return (
-    <section className="container" id="skills">
+    <section className="container">
       {/* Header */}
       <motion.div
         className="skills-header"
@@ -197,9 +198,11 @@ export default function Skills() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -4 }}
                 transition={{
-                  duration: 0.6,
+                  type: "spring",
+                  stiffness: 80,
+                  damping: 14,
                   delay: (rowIndex + colIndex) * 0.1,
                 }}
               >

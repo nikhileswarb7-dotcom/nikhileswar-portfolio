@@ -46,10 +46,10 @@ export default function Certificates() {
     <section className="container" style={{ padding: "40px 0" }}>
       <motion.div
         className="card"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.8 }}
+        transition={{ type: "spring", stiffness: 60, damping: 14 }}
         style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.05)", borderRadius: 12, padding: 24 }}
       >
         <h2 style={{ fontSize: "1.8rem", color: "#fff", marginBottom: 4, display: "flex", alignItems: "center", gap: 8 }}>
@@ -97,10 +97,10 @@ export default function Certificates() {
               <motion.div
                 key={c.title}
                 className="cert card"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -30, scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 80, damping: 14, delay: idx * 0.08 }}
                 whileHover={{
                   scale: 1.03,
                   boxShadow: "0 0 15px rgba(var(--accent-rgb), 0.3)",

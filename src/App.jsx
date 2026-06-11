@@ -20,27 +20,35 @@ export default function App() {
         <section id="home">
           <Home />
         </section>
+        <div className="section-divider" />
         <section id="projects">
           <Projects />
         </section>
+        <div className="section-divider" />
         <section id="gallery">
           <Gallery />
         </section>
+        <div className="section-divider" />
         <section id="skills">
           <SkillNetwork />
         </section>
+        <div className="section-divider" />
         <section id="certificates">
           <Certificates />
         </section>
+        <div className="section-divider" />
         <section id="blog">
           <Blog />
         </section>
+        <div className="section-divider" />
         <section id="resume">
           <Resume />
         </section>
+        <div className="section-divider" />
         <section id="about">
           <About />
         </section>
+        <div className="section-divider" />
         <section id="contact">
           <Contact />
         </section>

@@ -257,10 +257,8 @@ form h3 {
 
 /* 🌙 Blog Section - Dark Blue Theme (No Vote Highlight) */
 .blog-section {
-  background: radial-gradient(circle at top left, #120c1a, #000);
   color: #e4e7ec;
   padding: 80px 10%;
-  min-height: 100vh;
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
@@ -365,4 +363,19 @@ form h3 {
 .vote-btn.disagree:hover {
   background-color: #ff4c4c;
   color: #0b0e14;
+}
+
+/* Premium section spacing and visual dividers */
+main section {
+  padding: 80px 0;
+  scroll-margin-top: 80px;
+  position: relative;
+}
+
+.section-divider {
+  height: 1px;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.15) 30%, rgba(var(--accent-rgb), 0.3) 50%, rgba(var(--accent-rgb), 0.15) 70%, transparent);
 }

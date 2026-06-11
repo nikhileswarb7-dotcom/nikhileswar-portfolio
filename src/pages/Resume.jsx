@@ -7,10 +7,10 @@ export default function Resume() {
     <section className="container" style={{ padding: "60px 0" }}>
       <motion.div
         className="card"
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.8 }}
+        transition={{ type: "spring", stiffness: 60, damping: 14 }}
         style={{
           background: "rgba(255, 255, 255, 0.02)",
           backdropFilter: "blur(12px)",
@@ -22,10 +22,10 @@ export default function Resume() {
         }}
       >
         <motion.h2
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.15 }}
+          transition={{ type: "spring", stiffness: 90, damping: 14, delay: 0.1 }}
           style={{ fontSize: 28, color: "var(--accent)", marginBottom: 12, display: "flex", alignItems: "center", gap: 10 }}
         >
           <FileText size={28} /> Resume
@@ -35,7 +35,7 @@ export default function Resume() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.25 }}
+          transition={{ type: "spring", stiffness: 90, damping: 14, delay: 0.18 }}
           style={{ color: "#aaa", marginBottom: 25 }}
         >
           A quick glance at my journey.
@@ -43,10 +43,10 @@ export default function Resume() {
 
         {/* Profile Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
+          transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.22 }}
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -96,10 +96,10 @@ export default function Resume() {
 
         {/* Education Section with Border Box */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
+          transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.3 }}
           style={{
             marginTop: 40,
             border: "1px solid rgba(255,255,255,0.1)",
@@ -129,10 +129,10 @@ export default function Resume() {
 
         {/* Experience Section with Border Box */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+          transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.38 }}
           style={{
             marginTop: 40,
             border: "1px solid rgba(255,255,255,0.1)",
@@ -162,10 +162,10 @@ export default function Resume() {
 
         {/* Projects */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.55 }}
+          transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.44 }}
           style={{ marginTop: 40 }}
         >
           <h4 style={{ fontSize: 20, color: "var(--accent)", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
@@ -181,10 +181,10 @@ export default function Resume() {
 
         {/* Skills */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.5 }}
           style={{ marginTop: 40 }}
         >
           <h4 style={{ fontSize: 20, color: "var(--accent)", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
@@ -234,10 +234,10 @@ export default function Resume() {
         </motion.div>
         
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.7 }}
+          transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.58 }}
           style={{
             display: "flex",
             justifyContent: "center",
@@ -278,7 +278,7 @@ export default function Resume() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.65 }}
+          transition={{ type: "spring", stiffness: 60, damping: 15, delay: 0.62 }}
           style={{
             marginTop: 50,
             borderRadius: 12,
