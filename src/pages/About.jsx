@@ -66,7 +66,7 @@ const AboutMe = () => {
 
         <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.8)" }}>
           Beyond writing code, I enjoy leading developer communities, collaborating on open-source projects,
-          and designing scalable software architecture. My experience spans mobile development with Flutter, 
+          and designing scalable software architecture. My experience spans mobile development with Flutter,
           cloud synchronization with Firebase, and edge computing. I seek to build technical solutions that
           are not only highly accurate, but also user-centric and responsive.
         </p>

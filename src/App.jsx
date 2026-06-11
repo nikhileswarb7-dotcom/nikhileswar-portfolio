@@ -1,5 +1,4 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import GlowBackground from './components/GlowBackground'
 import Home from './pages/Home'
@@ -10,7 +9,6 @@ import Blog from './pages/Blog'
 import Resume from './pages/Resume'
 import About from './pages/About'
 import Contact from './pages/Contact'
-import NotFound from './pages/NotFound'
 import SkillNetwork from './pages/Skills'  
 
 export default function App() {
@@ -19,18 +17,33 @@ export default function App() {
       <GlowBackground />
       <Navbar />
       <main style={{ flex: 1 }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/skills" element={<SkillNetwork />} />
-          <Route path="/certificates" element={<Certificates />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/about" element={<About />} /> {/* ✅ fixed lowercase */}
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <section id="home">
+          <Home />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="gallery">
+          <Gallery />
+        </section>
+        <section id="skills">
+          <SkillNetwork />
+        </section>
+        <section id="certificates">
+          <Certificates />
+        </section>
+        <section id="blog">
+          <Blog />
+        </section>
+        <section id="resume">
+          <Resume />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
       <footer className="footer">
         © {new Date().getFullYear()} Nikhileswar Behera — Built with React

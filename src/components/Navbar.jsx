@@ -1,22 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { label: "Home", to: "/" },
-  { label: "Projects", to: "/projects" },
-  { label: "Gallery", to: "/gallery" },
-  { label: "Skills", to: "/skills" },
-  { label: "Certificates", to: "/certificates" },
-  { label: "Blog", to: "/blog" },
-  { label: "Resume", to: "/resume" },
-  { label: "About Me", to: "/about" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", id: "home" },
+  { label: "Projects", id: "projects" },
+  { label: "Gallery", id: "gallery" },
+  { label: "Skills", id: "skills" },
+  { label: "Certificates", id: "certificates" },
+  { label: "Blog", id: "blog" },
+  { label: "Resume", id: "resume" },
+  { label: "About Me", id: "about" },
+  { label: "Contact", id: "contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const navRef = useRef(null);
   const linksRef = useRef(null);
 
@@ -31,6 +31,51 @@ export default function Navbar() {
     window.addEventListener("resize", checkOverflow);
     return () => window.removeEventListener("resize", checkOverflow);
   }, []);
+
+  // Intersection Observer to track scroll positions and update active nav tab
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-45% 0px -45% 0px", // Trigger when section intersects the center area
+      threshold: 0,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    links.forEach((link) => {
+      const el = document.getElementById(link.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      links.forEach((link) => {
+        const el = document.getElementById(link.id);
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
+
+  const handleLinkClick = (e, id) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveSection(id);
+      
+      // Quietly push the hash to URL
+      window.history.pushState(null, "", `#${id}`);
+    }
+  };
 
   return (
     <>
@@ -85,20 +130,21 @@ export default function Navbar() {
             flexGrow: 1,
           }}
         >
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end
-              style={{
-                position: "relative",
-                fontSize: "0.95rem",
-                textDecoration: "none",
-                color: "white",
-                fontWeight: 500,
-              }}
-            >
-              {({ isActive }) => (
+          {links.map((l) => {
+            const isActive = activeSection === l.id;
+            return (
+              <a
+                key={l.id}
+                href={`#${l.id}`}
+                onClick={(e) => handleLinkClick(e, l.id)}
+                style={{
+                  position: "relative",
+                  fontSize: "0.95rem",
+                  textDecoration: "none",
+                  color: "white",
+                  fontWeight: 500,
+                }}
+              >
                 <motion.div
                   whileHover={{
                     scale: 1.1,
@@ -135,9 +181,9 @@ export default function Navbar() {
                     />
                   )}
                 </motion.div>
-              )}
-            </NavLink>
-          ))}
+              </a>
+            );
+          })}
         </div>
 
         {/* Hamburger */}
@@ -199,24 +245,28 @@ export default function Navbar() {
               ✕
             </button>
 
-            {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                onClick={() => setIsOpen(false)}
-                style={{
-                  color: "#fff",
-                  textDecoration: "none",
-                  padding: "1rem 0",
-                  width: "100%",
-                  textAlign: "center",
-                  fontSize: 16,
-                  borderBottom: "1px solid rgba(255,255,255,0.05)",
-                }}
-              >
-                {l.label}
-              </NavLink>
-            ))}
+            {links.map((l) => {
+              const isActive = activeSection === l.id;
+              return (
+                <a
+                  key={l.id}
+                  href={`#${l.id}`}
+                  onClick={(e) => handleLinkClick(e, l.id)}
+                  style={{
+                    color: isActive ? "var(--accent)" : "#fff",
+                    textDecoration: "none",
+                    padding: "1rem 0",
+                    width: "100%",
+                    textAlign: "center",
+                    fontSize: 16,
+                    borderBottom: "1px solid rgba(255,255,255,0.05)",
+                    transition: "color 0.3s ease",
+                  }}
+                >
+                  {l.label}
+                </a>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>
